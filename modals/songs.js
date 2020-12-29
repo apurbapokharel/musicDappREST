@@ -5,6 +5,10 @@ const schema = mongoose.Schema({
         type: String,
         required: true,
     },
+    songCount: {
+        type: Number,
+        required: true,
+    },
     aesKey: {
         type: String,
         required: true,

@@ -11,6 +11,7 @@ router.post('/', async(req,res) => {
 
     const song= new Song({
         songIdentifier: req.body.songIdentifier,
+        songCount: req.body.songCount,
         aesKey: hashedAES,
     });
     try{
