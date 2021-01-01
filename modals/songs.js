@@ -5,6 +5,14 @@ const schema = mongoose.Schema({
         type: String,
         required: true,
     },
+    songName: {
+        type: String,
+        required: true,
+    },
+    artistName: {
+        type: String,
+        required: true,
+    },
     songCount: {
         type: Number,
         required: true,

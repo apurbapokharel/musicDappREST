@@ -12,6 +12,8 @@ router.get('/', async(req,res) => {
             var plaintext = decrypted.toString(crypto.enc.Utf8)
             return({
                musicIdentifer: data.songIdentifier,
+               musicName: data.songName,
+               artistName: data.artistName,
                musicCount: data.songCount,
                AESKey: plaintext
             })

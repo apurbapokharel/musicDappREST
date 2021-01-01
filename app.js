@@ -7,8 +7,10 @@ const postSong = require('./routes/postSong');
 const postSongHash = require('./routes/postSongHash');
 const getAESKey = require('./routes/getSongKey');
 const getSongHash = require('./routes/compareSongHash');
-const getSongsCount = require('./routes/getSongsCount.js')
-const getMusicIdentifiers = require('./routes/getMusicIdentifiers')
+const getSongsCount = require('./routes/getSongsCount.js');
+const getMusicIdentifiers = require('./routes/getMusicIdentifiers');
+const purchaseSong = require('./routes/purchaseSong');
+const purchaseSongList = require('./routes/getPurchaseSongList');
 const app = express();
 
 //middlewares
@@ -20,6 +22,8 @@ app.use('/compareSongHash', getSongHash);
 app.use('/getSongsCount', getSongsCount);
 app.use('/getMusicIdentifiers', getMusicIdentifiers);
 app.use('/getSongKey', getAESKey);
+app.use('/purchaseSong', purchaseSong);
+app.use('/getPurchasedSongList', purchaseSongList);
 
 //routes
 app.get('/', (req,res) => {
