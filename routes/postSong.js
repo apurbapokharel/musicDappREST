@@ -12,7 +12,7 @@ router.post('/', async(req,res) => {
     const song= new Song({
         songIdentifier: req.body.songIdentifier,
         songName: req.body.songName,
-        artistName: req.bosy.artistName,
+        artistName: req.body.artistName,
         songCount: req.body.songCount,
         aesKey: hashedAES,
     });
