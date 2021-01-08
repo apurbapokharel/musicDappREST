@@ -3,7 +3,7 @@ const PurchaseSong = require('../modals/purchasedSongs');
 const router = express.Router();
 
 //SEARCH AND RETURN
-router.get('/', async(req,res) => {
+router.post('/', async(req,res) => {
     try {
         const post =  await PurchaseSong.find({userPublicKey : req.body.userPublicKey});
         console.log(post);

@@ -11,6 +11,7 @@ const getSongsCount = require('./routes/getSongsCount.js');
 const getMusicIdentifiers = require('./routes/getMusicIdentifiers');
 const purchaseSong = require('./routes/purchaseSong');
 const purchaseSongList = require('./routes/getPurchaseSongList');
+const searchSong = require('./routes/searchSong');
 const app = express();
 
 //middlewares
@@ -24,7 +25,7 @@ app.use('/getMusicIdentifiers', getMusicIdentifiers);
 app.use('/getSongKey', getAESKey);
 app.use('/purchaseSong', purchaseSong);
 app.use('/getPurchasedSongList', purchaseSongList);
-
+app.use('/searchSong', searchSong);
 //routes
 app.get('/', (req,res) => {
     res.send('We are on home');
