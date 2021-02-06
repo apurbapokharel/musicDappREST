@@ -5,10 +5,30 @@ const schema = mongoose.Schema({
         type: String,
         required: true,
     },
-    downloadedSongs: [{
-        type: String,
-        required: true,
-    }]
+    downloadedSongs: [
+        {
+            songIdentifier: {
+                type: String,
+                required: true,
+            },
+            songName: {
+                type: String,
+                required: true,
+            },
+            artistName: {
+                type: String,
+                required: true,
+            },
+            songCount: {
+                type: Number,
+                required: true,
+            },
+            aesKey: {
+                type: String,
+                required: true,
+            },
+        }
+    ]
 });
 
 module.exports = mongoose.model('PurchasedSongs', schema);
