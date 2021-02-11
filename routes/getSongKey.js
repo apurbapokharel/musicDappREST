@@ -8,10 +8,13 @@ router.post('/', async(req,res) => {
     try {
         console.log(req.body.songIdentifier);
         const post =  await Song.find({songIdentifier : req.body.songIdentifier});
-        var decrypted = crypto.AES.decrypt(post[0].aesKey, process.env.key);
-        var plaintext = decrypted.toString(crypto.enc.Utf8)
+        console.log(post);
+        var decryptedAES = crypto.AES.decrypt(post[0].aesKey, process.env.key);
+        var AESKey = decryptedAES.toString(crypto.enc.Utf8)
+        var decryptedIV = crypto.AES.decrypt(post[0].iv, process.env.key);
+        var iv = decryptedIV.toString(crypto.enc.Utf8)
         var musicCount = post[0].songCount
-        res.json([plaintext, musicCount]);
+        res.json([AESKey, musicCount, iv]);
     } catch (error) {
         console.log(error);
         res.json("not found"); 

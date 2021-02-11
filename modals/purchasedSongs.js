@@ -27,6 +27,10 @@ const schema = mongoose.Schema({
                 type: String,
                 required: true,
             },
+            iv: {
+                type: String,
+                required: true,
+            }
         }
     ]
 });

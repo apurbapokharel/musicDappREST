@@ -8,13 +8,14 @@ const router = express.Router();
 router.post('/', async(req,res) => {
     //encrypt the aes hash
     hashedAES =  crypto.AES.encrypt(req.body.aesKey, process.env.key)
-
+    hashedIV = crypto.AES.encrypt(req.body.iv, process.env.key)
     const song= new Song({
         songIdentifier: req.body.songIdentifier,
         songName: req.body.songName,
         artistName: req.body.artistName,
         songCount: req.body.songCount,
         aesKey: hashedAES,
+        iv: hashedIV
     });
     try{
         const savedSong = await song.save();

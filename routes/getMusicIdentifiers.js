@@ -8,14 +8,19 @@ router.get('/', async(req,res) => {
         const post =  await Song.find();
         
         res.json(post.map(function(data){
-            var decrypted = crypto.AES.decrypt(data.aesKey, process.env.key);
-            var plaintext = decrypted.toString(crypto.enc.Utf8)
+            console.log(data);
+            var decryptedAES = crypto.AES.decrypt(data.aesKey, process.env.key);
+            var plaintextAES = decryptedAES.toString(crypto.enc.Utf8)
+
+            var decryptedIV = crypto.AES.decrypt(data.iv, process.env.key);
+            var plaintextIV = decryptedIV.toString(crypto.enc.Utf8)
             return({
                musicIdentifer: data.songIdentifier,
                musicName: data.songName,
                artistName: data.artistName,
                musicCount: data.songCount,
-               AESKey: plaintext
+               AESKey: plaintextAES,
+               iv: plaintextIV
             })
         }));
     } catch (error) {

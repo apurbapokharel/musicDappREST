@@ -12,6 +12,7 @@ const getMusicIdentifiers = require('./routes/getMusicIdentifiers');
 const purchaseSong = require('./routes/purchaseSong');
 const purchaseSongList = require('./routes/getPurchaseSongList');
 const searchSong = require('./routes/searchSong');
+const encrypt = require('./routes/encrypt');
 const app = express();
 
 //middlewares
@@ -26,6 +27,7 @@ app.use('/getSongKey', getAESKey);
 app.use('/purchaseSong', purchaseSong);
 app.use('/getPurchasedSongList', purchaseSongList);
 app.use('/searchSong', searchSong);
+app.use('/encrypt', encrypt);
 //routes
 app.get('/', (req,res) => {
     res.send('We are on home');

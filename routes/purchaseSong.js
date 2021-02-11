@@ -10,14 +10,17 @@ router.post('/', async(req,res) => {
 
     //get song stats from songIdentifier
     const identifierSearchResult =  await Song.find({songIdentifier : req.body.songIdentifier});
-    var decrypted = crypto.AES.decrypt(identifierSearchResult[0].aesKey, process.env.key);
-    var plaintext = decrypted.toString(crypto.enc.Utf8)
+    var decryptedAES = crypto.AES.decrypt(identifierSearchResult[0].aesKey, process.env.key);
+    var plaintextAES = decryptedAES.toString(crypto.enc.Utf8)
+    var decryptedIV = crypto.AES.decrypt(identifierSearchResult[0].iv, process.env.key);
+    var plaintextIV = decryptedIV.toString(crypto.enc.Utf8)
     var song = {
         songIdentifier: identifierSearchResult[0].songIdentifier,
         songName: identifierSearchResult[0].songName,
         artistName: identifierSearchResult[0].artistName,
         songCount: identifierSearchResult[0].songCount,
-        aesKey: plaintext
+        aesKey: plaintextAES,
+        iv: plaintextIV
     }
 
     if(post.length == 0){

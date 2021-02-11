@@ -21,6 +21,10 @@ const schema = mongoose.Schema({
         type: String,
         required: true,
     },
+    iv: {
+        type: String,
+        required: true,
+    },
     date: {
         type: Date,
         default: Date.now,
