@@ -20,7 +20,8 @@ router.get('/', async(req,res) => {
                artistName: data.artistName,
                musicCount: data.songCount,
                AESKey: plaintextAES,
-               iv: plaintextIV
+               iv: plaintextIV,
+               costPerStream:  data.costPerStream
             })
         }));
     } catch (error) {

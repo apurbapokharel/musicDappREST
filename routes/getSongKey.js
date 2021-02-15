@@ -14,7 +14,8 @@ router.post('/', async(req,res) => {
         var decryptedIV = crypto.AES.decrypt(post[0].iv, process.env.key);
         var iv = decryptedIV.toString(crypto.enc.Utf8)
         var musicCount = post[0].songCount
-        res.json([AESKey, musicCount, iv]);
+        var costPerStream = post[0].costPerStream
+        res.json([AESKey, musicCount, iv, costPerStream]);
     } catch (error) {
         console.log(error);
         res.json("not found"); 

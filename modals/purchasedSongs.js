@@ -30,7 +30,11 @@ const schema = mongoose.Schema({
             iv: {
                 type: String,
                 required: true,
-            }
+            },
+            costPerStream: {
+                type: Number,
+                required: true,
+            },
         }
     ]
 });

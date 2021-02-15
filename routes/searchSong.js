@@ -37,7 +37,8 @@ router.post('/', async(req,res) => {
                 artistName: post[0].artistName,
                 musicCount: post[0].songCount,
                 AESKey: plaintextAES,
-                iv: plaintextIV
+                iv: plaintextIV,
+                costPerStream: post[0].costPerStream
             }])
         }
     } catch (error) {

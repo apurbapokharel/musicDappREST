@@ -15,7 +15,8 @@ router.post('/', async(req,res) => {
         artistName: req.body.artistName,
         songCount: req.body.songCount,
         aesKey: hashedAES,
-        iv: hashedIV
+        iv: hashedIV,
+        costPerStream:  req.body.costPerStream
     });
     try{
         const savedSong = await song.save();

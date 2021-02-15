@@ -20,7 +20,8 @@ router.post('/', async(req,res) => {
         artistName: identifierSearchResult[0].artistName,
         songCount: identifierSearchResult[0].songCount,
         aesKey: plaintextAES,
-        iv: plaintextIV
+        iv: plaintextIV,
+        costPerStream: identifierSearchResult[0].costPerStream
     }
 
     if(post.length == 0){

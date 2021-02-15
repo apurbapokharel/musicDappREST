@@ -25,6 +25,10 @@ const schema = mongoose.Schema({
         type: String,
         required: true,
     },
+    costPerStream: {
+        type: Number,
+        required: true,
+    },
     date: {
         type: Date,
         default: Date.now,
