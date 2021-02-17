@@ -13,6 +13,10 @@ const purchaseSong = require('./routes/purchaseSong');
 const purchaseSongList = require('./routes/getPurchaseSongList');
 const searchSong = require('./routes/searchSong');
 const encrypt = require('./routes/encrypt');
+const updateStreamCount = require('./routes/updateStreamCount');
+const updateDownloadCount = require('./routes/updateDownloadCount');
+const songStats = require('./routes/getSongStats');
+const tipArtist = require('./routes/tipArtist');
 const app = express();
 
 //middlewares
@@ -28,6 +32,10 @@ app.use('/purchaseSong', purchaseSong);
 app.use('/getPurchasedSongList', purchaseSongList);
 app.use('/searchSong', searchSong);
 app.use('/encrypt', encrypt);
+app.use('/updateStreamCount', updateStreamCount);
+app.use('/updateDownloadCount', updateDownloadCount);
+app.use('/getSongStats', songStats);
+app.use('/tipArtist', tipArtist);
 //routes
 app.get('/', (req,res) => {
     res.send('We are on home');

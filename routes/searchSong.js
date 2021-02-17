@@ -20,7 +20,9 @@ router.post('/', async(req,res) => {
                    artistName: data.artistName,
                    musicCount: data.songCount,
                    AESKey: plaintextAES,
-                   iv: plaintextIV
+                   iv: plaintextIV,
+                   costPerStream: data.costPerStream,
+                   costPerDownload: data.costPerDownload
                 })
                 }))
         }
@@ -38,7 +40,11 @@ router.post('/', async(req,res) => {
                 musicCount: post[0].songCount,
                 AESKey: plaintextAES,
                 iv: plaintextIV,
-                costPerStream: post[0].costPerStream
+                costPerStream: post[0].costPerStream,
+                costPerDownload: post[0].costPerDownload,
+                streamCount: post[0].streamCount,
+                downloadCount: post[0].downloadCount,
+                revenueFromTip: post[0].revenueFromTip
             }])
         }
     } catch (error) {

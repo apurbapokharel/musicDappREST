@@ -21,7 +21,9 @@ router.post('/', async(req,res) => {
         songCount: identifierSearchResult[0].songCount,
         aesKey: plaintextAES,
         iv: plaintextIV,
-        costPerStream: identifierSearchResult[0].costPerStream
+        costPerStream: identifierSearchResult[0].costPerStream,
+        costPerDownload: identifierSearchResult[0].costPerDownload
+
     }
 
     if(post.length == 0){

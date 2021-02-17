@@ -35,6 +35,10 @@ const schema = mongoose.Schema({
                 type: Number,
                 required: true,
             },
+            costPerDownload: {
+                type: Number,
+                required: true,
+            }
         }
     ]
 });

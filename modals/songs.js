@@ -25,9 +25,25 @@ const schema = mongoose.Schema({
         type: String,
         required: true,
     },
+    streamCount: {
+        type: Number,
+        default: 0,
+    },
+    downloadCount: {
+        type: Number,
+        default: 0,
+    },
     costPerStream: {
         type: Number,
         required: true,
+    },
+    costPerDownload: {
+        type: Number,
+        required: true,
+    },
+    revenueFromTip: {
+        type: Number,
+        default: 0,
     },
     date: {
         type: Date,

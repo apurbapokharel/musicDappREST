@@ -21,7 +21,8 @@ router.get('/', async(req,res) => {
                musicCount: data.songCount,
                AESKey: plaintextAES,
                iv: plaintextIV,
-               costPerStream:  data.costPerStream
+               costPerStream:  data.costPerStream,
+               costPerDownload: data.costPerDownload
             })
         }));
     } catch (error) {
